@@ -1,4 +1,6 @@
-﻿namespace CycleFor;
+﻿using System.Globalization;
+
+namespace CycleFor;
 
 public static class Program
 {
@@ -7,7 +9,7 @@ public static class Program
         Console.Write("Zadejte počáteční hodnotu na účtu: ");
         var initialAmountInput = Console.ReadLine(); // Načtení původní hodnoty
         
-        if (!decimal.TryParse(initialAmountInput, out var initialAmount)) // Validace načtené hodnoty
+        if (!decimal.TryParse(initialAmountInput, CultureInfo.CurrentCulture, out var initialAmount)) // Validace načtené hodnoty a převod na číslo
         {
             Console.Error.WriteLine("Neplatné číslo"); // Výpis chyby při neplatné hodnotě
             Environment.Exit(-1); // Ukončení programu s chybou
